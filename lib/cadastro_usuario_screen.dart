@@ -14,8 +14,10 @@ class _MyFormState extends State<CadastroUsuarioScreen> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final ButtonStyle style =
-      ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 16));
+  final ButtonStyle style = ElevatedButton.styleFrom(
+    textStyle: const TextStyle(fontSize: 16),
+    fixedSize: const Size(300, 40)
+  );
 
   String _userID = '';
   String _userName = '';
@@ -23,7 +25,7 @@ class _MyFormState extends State<CadastroUsuarioScreen> {
   String _email = '';
   String _password = '';
 
-  String _dropdownValue = 'Cliente';
+  String _dropdownValue = 'Usuario';
 
   void dropdownCallback(String? selectedValue) {
     if (selectedValue is String) {
@@ -40,7 +42,7 @@ class _MyFormState extends State<CadastroUsuarioScreen> {
     _emailController.clear();
     _passwordController.clear();
     setState(() {
-      _dropdownValue = 'Cliente';
+      _dropdownValue = 'Usuario';
     });
   }
 
@@ -138,7 +140,6 @@ class _MyFormState extends State<CadastroUsuarioScreen> {
               const SizedBox(height: 16.0),
               DropdownButtonFormField(
                 items: const [
-                  DropdownMenuItem(child: Text('Cliente'), value: 'Cliente'),
                   DropdownMenuItem(child: Text('Administrador'), value: 'Administrador'),
                   DropdownMenuItem(child: Text('Usuario'), value: 'Usuario'),
                 ],
@@ -150,7 +151,7 @@ class _MyFormState extends State<CadastroUsuarioScreen> {
                   border: OutlineInputBorder()
                 ),
               ),
-              const Spacer(), // Pushes the buttons to the bottom
+              const Spacer(),
               Column(
                 children: [
                   SizedBox(
